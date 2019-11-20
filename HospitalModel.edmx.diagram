@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a123e677c925445fb0dd959245416e2c" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="HA3_DataBaseV1Model.AppointmentsTable" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HA3_DataBaseV1Model.DoctorsTable" Width="1.5" PointX="2.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HA3_DataBaseV1Model.MedicationListTable" Width="1.5" PointX="6.875" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="HA3_DataBaseV1Model.MessagesTable" Width="1.5" PointX="0.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HA3_DataBaseV1Model.PatientsTable" Width="1.5" PointX="5.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HA3_DataBaseV1Model.TestTable" Width="1.5" PointX="10.875" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HA3_DataBaseV1Model.UsersTable" Width="1.5" PointX="0.625" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="HA3_DataBaseV1Model.DoctorLoginTable" ManuallyRouted="false" />
+        <AssociationConnector Association="HA3_DataBaseV1Model.UserLoginTable" ManuallyRouted="false" />
+        <AssociationConnector Association="HA3_DataBaseV1Model.PatientsTableTestTable" />
+        <AssociationConnector Association="HA3_DataBaseV1Model.PatientsTableMedicationListTable" />
+        <AssociationConnector Association="HA3_DataBaseV1Model.PatientsTableAppointmentsTable" />
+        <AssociationConnector Association="HA3_DataBaseV1Model.MedicationListTablePatientsTable" />
+        <AssociationConnector Association="HA3_DataBaseV1Model.DoctorsTableTestTable" ManuallyRouted="true" >
+          <ConnectorPoint PointX="4.375" PointY="2.2208968098958333" />
+          <ConnectorPoint PointX="5.125" PointY="2.2208968098958333" />
+          <ConnectorPoint PointX="5.125" PointY="5.1116341145833335" />
+          <ConnectorPoint PointX="6.010416666666667" PointY="5.1116341145833326" />
+          <ConnectorPoint PointX="6.177083333333333" PointY="5.1116341145833335" />
+          <ConnectorPoint PointX="7.572916666666667" PointY="5.1116341145833326" />
+          <ConnectorPoint PointX="7.739583333333333" PointY="5.1116341145833335" />
+          <ConnectorPoint PointX="11.135414166666665" PointY="5.1116341145833326" />
+          <ConnectorPoint PointX="11.302080833333333" PointY="5.1116341145833335" />
+          <ConnectorPoint PointX="11.625" PointY="5.1116341145833335" />
+          <ConnectorPoint PointX="11.625" PointY="5.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="HA3_DataBaseV1Model.DoctorsTablePatientsTable" />
+        <AssociationConnector Association="HA3_DataBaseV1Model.DoctorsTableAppointmentsTable" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
