@@ -21,20 +21,20 @@
         .auto-style4 {
             font-size: medium;
         }
-    </style>
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <span class="auto-style2">
         <p class="auto-style3">
-            Hospital System&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="auto-style4">HyperLink</asp:HyperLink>
-&nbsp;&nbsp;&nbsp;
-            <asp:HyperLink ID="HyperLink2" runat="server" CssClass="auto-style4">HyperLink</asp:HyperLink>
-&nbsp;&nbsp;&nbsp;
-            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="auto-style4">HyperLink</asp:HyperLink>
+            Hospital System&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:HyperLink ID="HyperLink1" runat="server" CssClass="auto-style4" NavigateUrl="~/HomePage.aspx">Home</asp:HyperLink>
+            &nbsp;&nbsp;</span><span class="auto-style2">&nbsp;&nbsp;&nbsp;<asp:HyperLink ID="HyperLink2" runat="server" CssClass="auto-style4" NavigateUrl="~/Login.aspx">Login</asp:HyperLink>
+        &nbsp;&nbsp;&nbsp;
+            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="auto-style4" NavigateUrl="~/MyWork/Appointments.aspx">Appointments</asp:HyperLink>
+        &nbsp;&nbsp;&nbsp;
+            <asp:HyperLink ID="HyperLink4" runat="server" CssClass="auto-style4" NavigateUrl="~/HomePage.aspx">Messages</asp:HyperLink>
         </p>
-        </span>&nbsp;<div>
+        </span><div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <p class="auto-style1">
                     &nbsp;
