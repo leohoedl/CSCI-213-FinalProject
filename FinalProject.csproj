@@ -79,7 +79,7 @@
     <Content Include="App_Data\HA3_DataBaseV1_log.ldf">
       <DependentUpon>HA3_DataBaseV1.mdf</DependentUpon>
     </Content>
-    <Content Include="HomePage.aspx" />
+    <Content Include="Doctor\doctorpage.aspx" />
     <Content Include="HospitalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HospitalModel.edmx</DependentUpon>
@@ -91,7 +91,8 @@
       <LastGenOutput>HospitalModel.cs</LastGenOutput>
     </Content>
     <Content Include="Login.aspx" />
-    <Content Include="MyWork\Appointments.aspx" />
+    <Content Include="Patient\Appointments.aspx" />
+    <Content Include="Patient\patientpage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -101,12 +102,12 @@
     <Compile Include="DoctorsTable.cs">
       <DependentUpon>HospitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="HomePage.aspx.cs">
-      <DependentUpon>HomePage.aspx</DependentUpon>
+    <Compile Include="Doctor\doctorpage.aspx.cs">
+      <DependentUpon>doctorpage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HomePage.aspx.designer.cs">
-      <DependentUpon>HomePage.aspx</DependentUpon>
+    <Compile Include="Doctor\doctorpage.aspx.designer.cs">
+      <DependentUpon>doctorpage.aspx</DependentUpon>
     </Compile>
     <Compile Include="HospitalModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -136,15 +137,22 @@
     <Compile Include="MessagesTable.cs">
       <DependentUpon>HospitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MyWork\Appointments.aspx.cs">
+    <Compile Include="Patient\Appointments.aspx.cs">
       <DependentUpon>Appointments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MyWork\Appointments.aspx.designer.cs">
+    <Compile Include="Patient\Appointments.aspx.designer.cs">
       <DependentUpon>Appointments.aspx</DependentUpon>
     </Compile>
     <Compile Include="PatientsTable.cs">
       <DependentUpon>HospitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\patientpage.aspx.cs">
+      <DependentUpon>patientpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\patientpage.aspx.designer.cs">
+      <DependentUpon>patientpage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
@@ -153,6 +161,20 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SiteDoctor.Master.cs">
+      <DependentUpon>SiteDoctor.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteDoctor.Master.designer.cs">
+      <DependentUpon>SiteDoctor.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SitePatient.Master.cs">
+      <DependentUpon>SitePatient.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitePatient.Master.designer.cs">
+      <DependentUpon>SitePatient.Master</DependentUpon>
     </Compile>
     <Compile Include="TestTable.cs">
       <DependentUpon>HospitalModel.tt</DependentUpon>
@@ -169,9 +191,13 @@
     <Content Include="HospitalModel.edmx.diagram">
       <DependentUpon>HospitalModel.edmx</DependentUpon>
     </Content>
-    <Content Include="MyWork\Web.config" />
+    <Content Include="Patient\Web.config" />
+    <Content Include="Doctor\Web.config" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
+    <Content Include="SitePatient.Master" />
+    <Content Include="SiteDoctor.Master" />
+    <Content Include="Patient\Web1.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

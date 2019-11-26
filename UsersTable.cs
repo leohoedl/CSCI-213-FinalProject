@@ -14,20 +14,8 @@ namespace FinalProject
     
     public partial class UsersTable
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UsersTable()
-        {
-            this.DoctorsTables = new HashSet<DoctorsTable>();
-            this.PatientsTables = new HashSet<PatientsTable>();
-        }
-    
         public string UserLoginName { get; set; }
         public string UserLoginPass { get; set; }
         public string UserLoginType { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DoctorsTable> DoctorsTables { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PatientsTable> PatientsTables { get; set; }
     }
 }

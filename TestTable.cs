@@ -19,8 +19,5 @@ namespace FinalProject
         public string TestResults { get; set; }
         public System.DateTime TestDate { get; set; }
         public int DoctorID { get; set; }
-    
-        public virtual PatientsTable PatientsTable { get; set; }
-        public virtual DoctorsTable DoctorsTable { get; set; }
     }
 }

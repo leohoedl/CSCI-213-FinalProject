@@ -21,8 +21,5 @@ namespace FinalProject
         public System.DateTime Date { get; set; }
         public System.TimeSpan Time { get; set; }
         public string VisitSummary { get; set; }
-    
-        public virtual PatientsTable PatientsTable { get; set; }
-        public virtual DoctorsTable DoctorsTable { get; set; }
     }
 }

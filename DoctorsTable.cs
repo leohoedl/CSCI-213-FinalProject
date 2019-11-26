@@ -14,15 +14,6 @@ namespace FinalProject
     
     public partial class DoctorsTable
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DoctorsTable()
-        {
-            this.UsersTables = new HashSet<UsersTable>();
-            this.TestTables = new HashSet<TestTable>();
-            this.PatientsTables = new HashSet<PatientsTable>();
-            this.AppointmentsTables = new HashSet<AppointmentsTable>();
-        }
-    
         public int DoctorID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -30,14 +21,5 @@ namespace FinalProject
         public string Department { get; set; }
         public string Email { get; set; }
         public string UserLoginName { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UsersTable> UsersTables { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TestTable> TestTables { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PatientsTable> PatientsTables { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AppointmentsTable> AppointmentsTables { get; set; }
     }
 }

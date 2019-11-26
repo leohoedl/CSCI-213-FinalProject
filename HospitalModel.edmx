@@ -17,14 +17,6 @@
           <Property Name="Time" Type="time" Precision="7" Nullable="false" />
           <Property Name="VisitSummary" Type="char" MaxLength="40" Nullable="false" />
         </EntityType>
-        <EntityType Name="DoctorLoginTable">
-          <Key>
-            <PropertyRef Name="DoctorID" />
-            <PropertyRef Name="UserLoginName" />
-          </Key>
-          <Property Name="DoctorID" Type="int" Nullable="false" />
-          <Property Name="UserLoginName" Type="char" MaxLength="18" Nullable="false" />
-        </EntityType>
         <EntityType Name="DoctorsTable">
           <Key>
             <PropertyRef Name="DoctorID" />
@@ -80,14 +72,6 @@
           <Property Name="TestDate" Type="date" Nullable="false" />
           <Property Name="DoctorID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="UserLoginTable">
-          <Key>
-            <PropertyRef Name="PatientsID" />
-            <PropertyRef Name="UserLoginName" />
-          </Key>
-          <Property Name="PatientsID" Type="int" Nullable="false" />
-          <Property Name="UserLoginName" Type="char" MaxLength="18" Nullable="false" />
-        </EntityType>
         <EntityType Name="UsersTable">
           <Key>
             <PropertyRef Name="UserLoginName" />
@@ -96,81 +80,15 @@
           <Property Name="UserLoginPass" Type="char" MaxLength="18" Nullable="false" />
           <Property Name="UserLoginType" Type="char" MaxLength="18" Nullable="false" />
         </EntityType>
-        <Association Name="FK_DoctorLoginTable_DoctorsTable">
-          <End Role="DoctorsTable" Type="Self.DoctorsTable" Multiplicity="1" />
-          <End Role="DoctorLoginTable" Type="Self.DoctorLoginTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DoctorsTable">
-              <PropertyRef Name="DoctorID" />
-            </Principal>
-            <Dependent Role="DoctorLoginTable">
-              <PropertyRef Name="DoctorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DoctorLoginTable_UsersTable">
-          <End Role="UsersTable" Type="Self.UsersTable" Multiplicity="1" />
-          <End Role="DoctorLoginTable" Type="Self.DoctorLoginTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UsersTable">
-              <PropertyRef Name="UserLoginName" />
-            </Principal>
-            <Dependent Role="DoctorLoginTable">
-              <PropertyRef Name="UserLoginName" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PatientLoginTable_PatientsTable">
-          <End Role="PatientsTable" Type="Self.PatientsTable" Multiplicity="1" />
-          <End Role="UserLoginTable" Type="Self.UserLoginTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PatientsTable">
-              <PropertyRef Name="PatientsID" />
-            </Principal>
-            <Dependent Role="UserLoginTable">
-              <PropertyRef Name="PatientsID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PatientLoginTable_UsersTable">
-          <End Role="UsersTable" Type="Self.UsersTable" Multiplicity="1" />
-          <End Role="UserLoginTable" Type="Self.UserLoginTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UsersTable">
-              <PropertyRef Name="UserLoginName" />
-            </Principal>
-            <Dependent Role="UserLoginTable">
-              <PropertyRef Name="UserLoginName" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="HA3_DataBaseV1ModelStoreContainer">
           <EntitySet Name="AppointmentsTable" EntityType="Self.AppointmentsTable" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DoctorLoginTable" EntityType="Self.DoctorLoginTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DoctorsTable" EntityType="Self.DoctorsTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MedicationListTable" EntityType="Self.MedicationListTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MessagesTable" EntityType="Self.MessagesTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PatientsTable" EntityType="Self.PatientsTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TestTable" EntityType="Self.TestTable" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserLoginTable" EntityType="Self.UserLoginTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UsersTable" EntityType="Self.UsersTable" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_DoctorLoginTable_DoctorsTable" Association="Self.FK_DoctorLoginTable_DoctorsTable">
-            <End Role="DoctorsTable" EntitySet="DoctorsTable" />
-            <End Role="DoctorLoginTable" EntitySet="DoctorLoginTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DoctorLoginTable_UsersTable" Association="Self.FK_DoctorLoginTable_UsersTable">
-            <End Role="UsersTable" EntitySet="UsersTable" />
-            <End Role="DoctorLoginTable" EntitySet="DoctorLoginTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PatientLoginTable_PatientsTable" Association="Self.FK_PatientLoginTable_PatientsTable">
-            <End Role="PatientsTable" EntitySet="PatientsTable" />
-            <End Role="UserLoginTable" EntitySet="UserLoginTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PatientLoginTable_UsersTable" Association="Self.FK_PatientLoginTable_UsersTable">
-            <End Role="UsersTable" EntitySet="UsersTable" />
-            <End Role="UserLoginTable" EntitySet="UserLoginTable" />
-          </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
@@ -187,8 +105,6 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
           <Property Name="VisitSummary" Type="String" MaxLength="40" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="PatientsTable" Relationship="HA3_DataBaseV1Model.PatientsTableAppointmentsTable" FromRole="AppointmentsTable" ToRole="PatientsTable" />
-          <NavigationProperty Name="DoctorsTable" Relationship="HA3_DataBaseV1Model.DoctorsTableAppointmentsTable" FromRole="AppointmentsTable" ToRole="DoctorsTable" />
         </EntityType>
         <EntityType Name="DoctorsTable">
           <Key>
@@ -201,10 +117,6 @@
           <Property Name="Department" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="UserLoginName" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="UsersTables" Relationship="Self.DoctorLoginTable" FromRole="DoctorsTable" ToRole="UsersTable" />
-          <NavigationProperty Name="TestTables" Relationship="HA3_DataBaseV1Model.DoctorsTableTestTable" FromRole="DoctorsTable" ToRole="TestTable" />
-          <NavigationProperty Name="PatientsTables" Relationship="HA3_DataBaseV1Model.DoctorsTablePatientsTable" FromRole="DoctorsTable" ToRole="PatientsTable" />
-          <NavigationProperty Name="AppointmentsTables" Relationship="HA3_DataBaseV1Model.DoctorsTableAppointmentsTable" FromRole="DoctorsTable" ToRole="AppointmentsTable" />
         </EntityType>
         <EntityType Name="MedicationListTable">
           <Key>
@@ -213,8 +125,6 @@
           <Property Name="MedicationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="PatientID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PatientsTable" Relationship="HA3_DataBaseV1Model.PatientsTableMedicationListTable" FromRole="MedicationListTable" ToRole="PatientsTable" />
-          <NavigationProperty Name="PatientsTables" Relationship="HA3_DataBaseV1Model.MedicationListTablePatientsTable" FromRole="MedicationListTable" ToRole="PatientsTable" />
         </EntityType>
         <EntityType Name="MessagesTable">
           <Key>
@@ -240,12 +150,6 @@
           <Property Name="UserLoginName" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MedicationID" Type="Int32" Nullable="false" />
           <Property Name="TestID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="UsersTables" Relationship="Self.UserLoginTable" FromRole="PatientsTable" ToRole="UsersTable" />
-          <NavigationProperty Name="TestTables" Relationship="HA3_DataBaseV1Model.PatientsTableTestTable" FromRole="PatientsTable" ToRole="TestTable" />
-          <NavigationProperty Name="MedicationListTables" Relationship="HA3_DataBaseV1Model.PatientsTableMedicationListTable" FromRole="PatientsTable" ToRole="MedicationListTable" />
-          <NavigationProperty Name="AppointmentsTables" Relationship="HA3_DataBaseV1Model.PatientsTableAppointmentsTable" FromRole="PatientsTable" ToRole="AppointmentsTable" />
-          <NavigationProperty Name="MedicationListTable" Relationship="HA3_DataBaseV1Model.MedicationListTablePatientsTable" FromRole="PatientsTable" ToRole="MedicationListTable" />
-          <NavigationProperty Name="DoctorsTable" Relationship="HA3_DataBaseV1Model.DoctorsTablePatientsTable" FromRole="PatientsTable" ToRole="DoctorsTable" />
         </EntityType>
         <EntityType Name="TestTable">
           <Key>
@@ -256,8 +160,6 @@
           <Property Name="TestResults" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TestDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DoctorID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PatientsTable" Relationship="HA3_DataBaseV1Model.PatientsTableTestTable" FromRole="TestTable" ToRole="PatientsTable" />
-          <NavigationProperty Name="DoctorsTable" Relationship="HA3_DataBaseV1Model.DoctorsTableTestTable" FromRole="TestTable" ToRole="DoctorsTable" />
         </EntityType>
         <EntityType Name="UsersTable">
           <Key>
@@ -266,17 +168,7 @@
           <Property Name="UserLoginName" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="UserLoginPass" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="UserLoginType" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="DoctorsTables" Relationship="Self.DoctorLoginTable" FromRole="UsersTable" ToRole="DoctorsTable" />
-          <NavigationProperty Name="PatientsTables" Relationship="Self.UserLoginTable" FromRole="UsersTable" ToRole="PatientsTable" />
         </EntityType>
-        <Association Name="DoctorLoginTable">
-          <End Role="DoctorsTable" Type="Self.DoctorsTable" Multiplicity="*" />
-          <End Role="UsersTable" Type="Self.UsersTable" Multiplicity="*" />
-        </Association>
-        <Association Name="UserLoginTable">
-          <End Role="PatientsTable" Type="Self.PatientsTable" Multiplicity="*" />
-          <End Role="UsersTable" Type="Self.UsersTable" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="HA3_DataBaseV1Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AppointmentsTables" EntityType="Self.AppointmentsTable" />
           <EntitySet Name="DoctorsTables" EntityType="Self.DoctorsTable" />
@@ -285,127 +177,7 @@
           <EntitySet Name="PatientsTables" EntityType="Self.PatientsTable" />
           <EntitySet Name="TestTables" EntityType="Self.TestTable" />
           <EntitySet Name="UsersTables" EntityType="Self.UsersTable" />
-          <AssociationSet Name="DoctorLoginTable" Association="Self.DoctorLoginTable">
-            <End Role="DoctorsTable" EntitySet="DoctorsTables" />
-            <End Role="UsersTable" EntitySet="UsersTables" />
-          </AssociationSet>
-          <AssociationSet Name="UserLoginTable" Association="Self.UserLoginTable">
-            <End Role="PatientsTable" EntitySet="PatientsTables" />
-            <End Role="UsersTable" EntitySet="UsersTables" />
-          </AssociationSet>
-          <AssociationSet Name="PatientsTableTestTable" Association="HA3_DataBaseV1Model.PatientsTableTestTable">
-            <End Role="PatientsTable" EntitySet="PatientsTables" />
-            <End Role="TestTable" EntitySet="TestTables" />
-          </AssociationSet>
-          <AssociationSet Name="PatientsTableMedicationListTable" Association="HA3_DataBaseV1Model.PatientsTableMedicationListTable">
-            <End Role="PatientsTable" EntitySet="PatientsTables" />
-            <End Role="MedicationListTable" EntitySet="MedicationListTables" />
-          </AssociationSet>
-          <AssociationSet Name="PatientsTableAppointmentsTable" Association="HA3_DataBaseV1Model.PatientsTableAppointmentsTable">
-            <End Role="PatientsTable" EntitySet="PatientsTables" />
-            <End Role="AppointmentsTable" EntitySet="AppointmentsTables" />
-          </AssociationSet>
-          <AssociationSet Name="MedicationListTablePatientsTable" Association="HA3_DataBaseV1Model.MedicationListTablePatientsTable">
-            <End Role="MedicationListTable" EntitySet="MedicationListTables" />
-            <End Role="PatientsTable" EntitySet="PatientsTables" />
-          </AssociationSet>
-          <AssociationSet Name="DoctorsTableTestTable" Association="HA3_DataBaseV1Model.DoctorsTableTestTable">
-            <End Role="DoctorsTable" EntitySet="DoctorsTables" />
-            <End Role="TestTable" EntitySet="TestTables" />
-          </AssociationSet>
-          <AssociationSet Name="DoctorsTablePatientsTable" Association="HA3_DataBaseV1Model.DoctorsTablePatientsTable">
-            <End Role="DoctorsTable" EntitySet="DoctorsTables" />
-            <End Role="PatientsTable" EntitySet="PatientsTables" />
-          </AssociationSet>
-          <AssociationSet Name="DoctorsTableAppointmentsTable" Association="HA3_DataBaseV1Model.DoctorsTableAppointmentsTable">
-            <End Role="DoctorsTable" EntitySet="DoctorsTables" />
-            <End Role="AppointmentsTable" EntitySet="AppointmentsTables" />
-          </AssociationSet>
         </EntityContainer>
-        <Association Name="PatientsTableTestTable">
-          <End Type="HA3_DataBaseV1Model.PatientsTable" Role="PatientsTable" Multiplicity="1" />
-          <End Type="HA3_DataBaseV1Model.TestTable" Role="TestTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PatientsTable">
-              <PropertyRef Name="PatientID" />
-            </Principal>
-            <Dependent Role="TestTable">
-              <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PatientsTableMedicationListTable">
-          <End Type="HA3_DataBaseV1Model.PatientsTable" Role="PatientsTable" Multiplicity="1" />
-          <End Type="HA3_DataBaseV1Model.MedicationListTable" Role="MedicationListTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PatientsTable">
-              <PropertyRef Name="PatientID" />
-            </Principal>
-            <Dependent Role="MedicationListTable">
-              <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PatientsTableAppointmentsTable">
-          <End Type="HA3_DataBaseV1Model.PatientsTable" Role="PatientsTable" Multiplicity="1" />
-          <End Type="HA3_DataBaseV1Model.AppointmentsTable" Role="AppointmentsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PatientsTable">
-              <PropertyRef Name="PatientID" />
-            </Principal>
-            <Dependent Role="AppointmentsTable">
-              <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="MedicationListTablePatientsTable">
-          <End Type="HA3_DataBaseV1Model.MedicationListTable" Role="MedicationListTable" Multiplicity="1" />
-          <End Type="HA3_DataBaseV1Model.PatientsTable" Role="PatientsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MedicationListTable">
-              <PropertyRef Name="MedicationId" />
-            </Principal>
-            <Dependent Role="PatientsTable">
-              <PropertyRef Name="MedicationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="DoctorsTableTestTable">
-          <End Type="HA3_DataBaseV1Model.DoctorsTable" Role="DoctorsTable" Multiplicity="1" />
-          <End Type="HA3_DataBaseV1Model.TestTable" Role="TestTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DoctorsTable">
-              <PropertyRef Name="DoctorID" />
-            </Principal>
-            <Dependent Role="TestTable">
-              <PropertyRef Name="DoctorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="DoctorsTablePatientsTable">
-          <End Type="HA3_DataBaseV1Model.DoctorsTable" Role="DoctorsTable" Multiplicity="1" />
-          <End Type="HA3_DataBaseV1Model.PatientsTable" Role="PatientsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DoctorsTable">
-              <PropertyRef Name="DoctorID" />
-            </Principal>
-            <Dependent Role="PatientsTable">
-              <PropertyRef Name="DoctorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="DoctorsTableAppointmentsTable">
-          <End Type="HA3_DataBaseV1Model.DoctorsTable" Role="DoctorsTable" Multiplicity="1" />
-          <End Type="HA3_DataBaseV1Model.AppointmentsTable" Role="AppointmentsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DoctorsTable">
-              <PropertyRef Name="DoctorID" />
-            </Principal>
-            <Dependent Role="AppointmentsTable">
-              <PropertyRef Name="DoctorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -494,22 +266,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="DoctorLoginTable" TypeName="HA3_DataBaseV1Model.DoctorLoginTable" StoreEntitySet="DoctorLoginTable">
-            <EndProperty Name="DoctorsTable">
-              <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
-            </EndProperty>
-            <EndProperty Name="UsersTable">
-              <ScalarProperty Name="UserLoginName" ColumnName="UserLoginName" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="UserLoginTable" TypeName="HA3_DataBaseV1Model.UserLoginTable" StoreEntitySet="UserLoginTable">
-            <EndProperty Name="PatientsTable">
-              <ScalarProperty Name="PatientID" ColumnName="PatientsID" />
-            </EndProperty>
-            <EndProperty Name="UsersTable">
-              <ScalarProperty Name="UserLoginName" ColumnName="UserLoginName" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
