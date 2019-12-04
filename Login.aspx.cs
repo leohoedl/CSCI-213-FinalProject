@@ -36,13 +36,13 @@ namespace FinalProject
                 {
                     
                     FormsAuthentication.RedirectFromLoginPage(Login1.UserName, true);
-                    Response.Redirect("~/Doctor/doctorpage.aspx");
+                    Response.Redirect("~/Doctor/doctorHomepage.aspx");
                 }
                 if (objUser != null && objUser.UserLoginType.Trim().Equals("Patient"))
                 {
                    
                     FormsAuthentication.RedirectFromLoginPage(Login1.UserName, true);
-                    Response.Redirect("~/Patient/patientpage.aspx");
+                    Response.Redirect("~/Patient/patientHomepage.aspx");
                 }
 
 

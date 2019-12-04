@@ -10,15 +10,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    patient _________________________&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink>
-&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink>
-&nbsp;<div>
+        <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
-    FFFFFFFFFFFFF
 </body>
 </html>

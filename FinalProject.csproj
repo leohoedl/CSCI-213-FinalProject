@@ -79,7 +79,7 @@
     <Content Include="App_Data\HA3_DataBaseV1_log.ldf">
       <DependentUpon>HA3_DataBaseV1.mdf</DependentUpon>
     </Content>
-    <Content Include="Doctor\doctorpage.aspx" />
+    <Content Include="Doctor\doctorHomepage.aspx" />
     <Content Include="HospitalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HospitalModel.edmx</DependentUpon>
@@ -91,8 +91,12 @@
       <LastGenOutput>HospitalModel.cs</LastGenOutput>
     </Content>
     <Content Include="Login.aspx" />
-    <Content Include="Patient\Appointments.aspx" />
-    <Content Include="Patient\patientpage.aspx" />
+    <Content Include="Patient\patientAppointments.aspx" />
+    <Content Include="Patient\patientHomepage.aspx" />
+    <Content Include="Patient\patientMedications.aspx" />
+    <Content Include="Patient\patientMessages.aspx" />
+    <Content Include="Patient\patientNewAppointment.aspx" />
+    <Content Include="Patient\patientTests.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -102,12 +106,12 @@
     <Compile Include="DoctorsTable.cs">
       <DependentUpon>HospitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Doctor\doctorpage.aspx.cs">
-      <DependentUpon>doctorpage.aspx</DependentUpon>
+    <Compile Include="Doctor\doctorHomepage.aspx.cs">
+      <DependentUpon>doctorHomepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Doctor\doctorpage.aspx.designer.cs">
-      <DependentUpon>doctorpage.aspx</DependentUpon>
+    <Compile Include="Doctor\doctorHomepage.aspx.designer.cs">
+      <DependentUpon>doctorHomepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="HospitalModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -137,22 +141,50 @@
     <Compile Include="MessagesTable.cs">
       <DependentUpon>HospitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Patient\Appointments.aspx.cs">
-      <DependentUpon>Appointments.aspx</DependentUpon>
+    <Compile Include="Patient\patientAppointments.aspx.cs">
+      <DependentUpon>patientAppointments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Patient\Appointments.aspx.designer.cs">
-      <DependentUpon>Appointments.aspx</DependentUpon>
+    <Compile Include="Patient\patientAppointments.aspx.designer.cs">
+      <DependentUpon>patientAppointments.aspx</DependentUpon>
     </Compile>
     <Compile Include="PatientsTable.cs">
       <DependentUpon>HospitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Patient\patientpage.aspx.cs">
-      <DependentUpon>patientpage.aspx</DependentUpon>
+    <Compile Include="Patient\patientHomepage.aspx.cs">
+      <DependentUpon>patientHomepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Patient\patientpage.aspx.designer.cs">
-      <DependentUpon>patientpage.aspx</DependentUpon>
+    <Compile Include="Patient\patientHomepage.aspx.designer.cs">
+      <DependentUpon>patientHomepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\patientMedications.aspx.cs">
+      <DependentUpon>patientMedications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\patientMedications.aspx.designer.cs">
+      <DependentUpon>patientMedications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\patientMessages.aspx.cs">
+      <DependentUpon>patientMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\patientMessages.aspx.designer.cs">
+      <DependentUpon>patientMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\patientNewAppointment.aspx.cs">
+      <DependentUpon>patientNewAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\patientNewAppointment.aspx.designer.cs">
+      <DependentUpon>patientNewAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\patientTests.aspx.cs">
+      <DependentUpon>patientTests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\patientTests.aspx.designer.cs">
+      <DependentUpon>patientTests.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
@@ -197,7 +229,6 @@
     <Content Include="Site1.Master" />
     <Content Include="SitePatient.Master" />
     <Content Include="SiteDoctor.Master" />
-    <Content Include="Patient\Web1.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
