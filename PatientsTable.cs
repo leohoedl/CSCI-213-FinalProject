@@ -14,7 +14,7 @@ namespace FinalProject
     
     public partial class PatientsTable
     {
-        public int PatientID { get; set; }
+        public int PatientsID { get; set; }
         public int DoctorID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -11,6 +11,11 @@
     <asp:LoginStatus ID="LoginStatus1" runat="server" />
 &nbsp;<br />
     <br />
+    Medications<br />
+    <asp:ListBox ID="ListBox1" runat="server" Height="89px" Width="288px"></asp:ListBox>
+    <br />
+    <br />
+    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Patient/patientHomepage.aspx">Home</asp:HyperLink>
     <br />
     <br />
 </asp:Content>

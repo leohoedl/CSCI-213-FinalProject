@@ -11,8 +11,8 @@ namespace FinalProject.Patient
     public partial class patientpage : System.Web.UI.Page
     {
 
-        HA3_DataBaseV1Entities2 myDbcon1 = new HA3_DataBaseV1Entities2();
-        HA3_DataBaseV1Entities2 myDbcon2 = new HA3_DataBaseV1Entities2();
+        HA3_DataBaseV1Entities3 myDbcon1 = new HA3_DataBaseV1Entities3();
+        HA3_DataBaseV1Entities3 myDbcon2 = new HA3_DataBaseV1Entities3();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +24,7 @@ namespace FinalProject.Patient
                                        where x.UserLoginName.Trim().Equals(ourUser)
                                        select x).First();
 
-            int patID = myPatient.PatientID;
+            int patID = myPatient.PatientsID;
             int docID = myPatient.DoctorID;
 
             DoctorsTable myDoctor = (from x in myDbcon2.DoctorsTables.Local

@@ -81,6 +81,16 @@
       <DependentUpon>HA3_DataBaseV1.mdf</DependentUpon>
     </Content>
     <Content Include="Doctor\doctorHomepage.aspx" />
+    <Content Include="HAModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HAModel.edmx</DependentUpon>
+      <LastGenOutput>HAModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="HAModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HAModel.edmx</DependentUpon>
+      <LastGenOutput>HAModel.cs</LastGenOutput>
+    </Content>
     <Content Include="HospitalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HospitalModel.edmx</DependentUpon>
@@ -97,15 +107,16 @@
     <Content Include="Patient\patientMedications.aspx" />
     <Content Include="Patient\patientMessages.aspx" />
     <Content Include="Patient\patientNewAppointment.aspx" />
+    <Content Include="Patient\patientNewMessage.aspx" />
     <Content Include="Patient\patientTests.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppointmentsTable.cs">
-      <DependentUpon>HospitalModel.tt</DependentUpon>
+      <DependentUpon>HAModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DoctorsTable.cs">
-      <DependentUpon>HospitalModel.tt</DependentUpon>
+      <DependentUpon>HAModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Doctor\doctorHomepage.aspx.cs">
       <DependentUpon>doctorHomepage.aspx</DependentUpon>
@@ -113,6 +124,21 @@
     </Compile>
     <Compile Include="Doctor\doctorHomepage.aspx.designer.cs">
       <DependentUpon>doctorHomepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HAModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HAModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HAModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HAModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HAModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HAModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="HospitalModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -137,10 +163,10 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MedicationListTable.cs">
-      <DependentUpon>HospitalModel.tt</DependentUpon>
+      <DependentUpon>HAModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MessagesTable.cs">
-      <DependentUpon>HospitalModel.tt</DependentUpon>
+      <DependentUpon>HAModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Patient\patientAppointments.aspx.cs">
       <DependentUpon>patientAppointments.aspx</DependentUpon>
@@ -150,7 +176,7 @@
       <DependentUpon>patientAppointments.aspx</DependentUpon>
     </Compile>
     <Compile Include="PatientsTable.cs">
-      <DependentUpon>HospitalModel.tt</DependentUpon>
+      <DependentUpon>HAModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Patient\patientHomepage.aspx.cs">
       <DependentUpon>patientHomepage.aspx</DependentUpon>
@@ -179,6 +205,13 @@
     </Compile>
     <Compile Include="Patient\patientNewAppointment.aspx.designer.cs">
       <DependentUpon>patientNewAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\patientNewMessage.aspx.cs">
+      <DependentUpon>patientNewMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\patientNewMessage.aspx.designer.cs">
+      <DependentUpon>patientNewMessage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Patient\patientTests.aspx.cs">
       <DependentUpon>patientTests.aspx</DependentUpon>
@@ -210,10 +243,10 @@
       <DependentUpon>SitePatient.Master</DependentUpon>
     </Compile>
     <Compile Include="TestTable.cs">
-      <DependentUpon>HospitalModel.tt</DependentUpon>
+      <DependentUpon>HAModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UsersTable.cs">
-      <DependentUpon>HospitalModel.tt</DependentUpon>
+      <DependentUpon>HAModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -226,6 +259,13 @@
     </Content>
     <Content Include="Patient\Web.config" />
     <Content Include="Doctor\Web.config" />
+    <EntityDeploy Include="HAModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HAModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="HAModel.edmx.diagram">
+      <DependentUpon>HAModel.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <Content Include="SitePatient.Master" />

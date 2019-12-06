@@ -21,7 +21,7 @@ namespace FinalProject
 
         protected void Login1_Authenticate1(object sender, AuthenticateEventArgs e)
         {
-            using (HA3_DataBaseV1Entities2 dbcon = new HA3_DataBaseV1Entities2())
+            using (HA3_DataBaseV1Entities3 dbcon = new HA3_DataBaseV1Entities3())
             {
                 dbcon.UsersTables.Load();
 

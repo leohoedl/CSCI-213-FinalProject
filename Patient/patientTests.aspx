@@ -13,5 +13,15 @@
 &nbsp;<br />
     </p>
     <p>
+        Patient Tests</p>
+    <p>
+        <asp:ListBox ID="ListBox1" runat="server" Height="103px" Width="251px"></asp:ListBox>
     </p>
+    <p>
+    </p>
+    <p>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Patient/patientHomepage.aspx">Home</asp:HyperLink>
+    </p>
+    <p>
+        &nbsp;</p>
 </asp:Content>

@@ -15,8 +15,8 @@ namespace FinalProject
     public partial class MessagesTable
     {
         public int MessageID { get; set; }
-        public int MessageTO { get; set; }
-        public int MessageFROM { get; set; }
+        public string MessageTO { get; set; }
+        public string MessageFROM { get; set; }
         public System.DateTime Date { get; set; }
         public string Message { get; set; }
     }
