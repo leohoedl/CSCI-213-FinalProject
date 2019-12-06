@@ -21,8 +21,11 @@
     <span class="auto-style4">My Appointments</span><br />
     <br />
 
-    <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+    <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="AppointmentID" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
+        <Columns>
+            <asp:ButtonField CommandName="Select" Text="Select" />
+        </Columns>
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -34,6 +37,11 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
+
+    <br />
+    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Delete" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appointment ID:&nbsp;
+    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
 
     <br />
     <br />

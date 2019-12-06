@@ -13,7 +13,7 @@ namespace FinalProject.MyWork
         HA3_DataBaseV1Entities2 myDbcon1 = new HA3_DataBaseV1Entities2();
         HA3_DataBaseV1Entities2 myDbcon2 = new HA3_DataBaseV1Entities2();
         HA3_DataBaseV1Entities2 myDbcon3 = new HA3_DataBaseV1Entities2();
-    
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,9 +42,28 @@ namespace FinalProject.MyWork
             var myApp = from x in myDbcon2.AppointmentsTables.Local
                         where x.PatientID == patID && x.Date >= DateTime.Now
                         select x;
+
             GridView1.DataSource = myApp.ToList();
             GridView1.DataBind();
 
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int tempAppID = Convert.ToInt32(GridView1.SelectedDataKey[0]);
+            Label3.Text = tempAppID.ToString();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            HA3_DataBaseV1Entities2 myDbcon4 = new HA3_DataBaseV1Entities2();
+            myDbcon4.AppointmentsTables.Load();
+            AppointmentsTable delApp = (from x in myDbcon4.AppointmentsTables.Local
+                                        where x.AppointmentID == Convert.ToInt32(Label3.Text)
+                                        select x).First();
+            myDbcon4.AppointmentsTables.Remove(delApp);
+            myDbcon4.SaveChanges();
+            GridView1.DataBind();
         }
     }
 }
