@@ -21,6 +21,54 @@ namespace FinalProject.Doctor
                                  select x).First();
 
             Label1.Text = currentDoctor.FirstName + " " + currentDoctor.LastName;
+
+            myDbcon1.PatientsTables.Load();
+
+            var patients = from x in myDbcon1.PatientsTables.Local
+                               where x.DoctorID == currentDoctor.DoctorID
+                               select x;
+
+            GridView1.DataSource = patients.ToList();
+            GridView1.DataBind();
+
+            Label2.Text = "";
+            Label3.Text = "";
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int patientID = Convert.ToInt32(GridView1.SelectedDataKey[0]);
+
+            myDbcon1.PatientsTables.Load();
+
+            var patient = (from x in myDbcon1.PatientsTables.Local
+                           where x.PatientsID == patientID
+                           select x).First();
+
+            Label2.Text = patient.FirstName + " " + patient.LastName;
+
+            Label3.Text = patient.Email;
+
+            myDbcon1.TestTables.Load();
+
+            var tests = from x in myDbcon1.TestTables.Local
+                        where x.PatientID == patient.PatientsID
+                        select x;
+
+            GridView2.DataSource = tests.ToList();
+            GridView2.DataBind();
+
+            myDbcon1.MedicationListTables.Load();
+
+            var medications = from x in myDbcon1.MedicationListTables.Local
+                              where x.PatientID == patient.PatientsID
+                              select x;
+
+            GridView3.DataSource = medications.ToList();
+            GridView3.DataBind();
+
+            
+           
         }
     }
 }

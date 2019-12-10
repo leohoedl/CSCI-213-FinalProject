@@ -14,6 +14,7 @@ namespace FinalProject.Doctor
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Load name in page
             myDbcon1.DoctorsTables.Load();
 
             var currentDoctor = (from x in myDbcon1.DoctorsTables.Local
@@ -21,6 +22,17 @@ namespace FinalProject.Doctor
                                  select x).First();
 
             Label1.Text = currentDoctor.FirstName + " " + currentDoctor.LastName;
+
+
+            // Load appointments specific to Doctor
+            myDbcon1.AppointmentsTables.Load();
+
+            var appointments = from x in myDbcon1.AppointmentsTables.Local
+                               where x.DoctorID == currentDoctor.DoctorID
+                               select x;
+
+            GridView1.DataSource = appointments.ToList();
+            GridView1.DataBind();
         }
     }
 }

@@ -30,5 +30,6 @@
     <p>
     </p>
     <p>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Doctor/doctorHomepage.aspx">Back</asp:HyperLink>
     </p>
 </asp:Content>
