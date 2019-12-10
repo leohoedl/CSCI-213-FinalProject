@@ -12,7 +12,7 @@
     <p>
         <table style="width:100%;">
             <tr>
-                <td class="auto-style6">User:
+                <td class="auto-style6">Name:
                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 </td>
                 <td class="auto-style6">User:
