@@ -26,10 +26,13 @@
         <br />
     </p>
     <p>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Doctor/doctorPatients.aspx">Patients</asp:HyperLink>
     </p>
     <p>
+        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Doctor/doctorAppointments.aspx">Appointments</asp:HyperLink>
     </p>
     <p>
+        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Doctor/doctorMessages.aspx">Messages</asp:HyperLink>
     </p>
     <p>
     </p>

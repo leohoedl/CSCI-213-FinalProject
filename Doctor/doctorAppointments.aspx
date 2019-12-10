@@ -25,7 +25,9 @@
         </table>
     </p>
     <p>
-    </p>
+        Appointments</p>
+    <p>
+        &nbsp;</p>
     <p>
     </p>
 </asp:Content>
