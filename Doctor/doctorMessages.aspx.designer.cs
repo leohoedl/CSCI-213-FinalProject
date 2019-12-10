@@ -10,7 +10,7 @@
 namespace FinalProject.Doctor {
     
     
-    public partial class WebForm1 {
+    public partial class doctorMessages {
         
         /// <summary>
         /// Label1 control.

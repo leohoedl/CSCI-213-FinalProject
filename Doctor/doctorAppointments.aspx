@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="doctorHomepage.aspx.cs" Inherits="FinalProject.Doctor.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="doctorAppointments.aspx.cs" Inherits="FinalProject.Doctor.doctorAppointments" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style4 {
-            width: 280px;
+        .auto-style6 {
             font-size: large;
             color: #0000FF;
+            width: 280px;
         }
     </style>
 </asp:Content>
@@ -12,22 +12,17 @@
     <p>
         <table style="width:100%;">
             <tr>
-                <td class="auto-style4">Name:
+                <td class="auto-style6">Name:
                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 </td>
-                <td class="auto-style4">User:&nbsp;
-                    <asp:LoginName ID="LoginName1" runat="server" />
+                <td class="auto-style6">User:&nbsp; <asp:LoginName ID="LoginName1" runat="server" />
                 </td>
                 <td>
                     <asp:LoginStatus ID="LoginStatus1" runat="server" />
                 </td>
+                <td>&nbsp;</td>
             </tr>
         </table>
-        <br />
-    </p>
-    <p>
-    </p>
-    <p>
     </p>
     <p>
     </p>
