@@ -67,8 +67,45 @@ namespace FinalProject.Doctor
             GridView3.DataSource = medications.ToList();
             GridView3.DataBind();
 
-            
-           
+        }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            // Get doctor
+            myDbcon1.DoctorsTables.Load();
+
+            var currentDoctor = (from x in myDbcon1.DoctorsTables.Local
+                                 where x.UserLoginName.Trim() == User.Identity.Name.Trim()
+                                 select x).First();
+
+
+
+            var text = TextBox1.Text.Trim();
+
+            myDbcon1.PatientsTables.Load();
+
+            int parseInt;
+            if(int.TryParse(TextBox1.Text, out parseInt))
+            {
+                var patients = from x in myDbcon1.PatientsTables.Local
+                               where x.PatientsID == parseInt
+                               where x.DoctorID == currentDoctor.DoctorID
+                               select x;
+
+                GridView1.DataSource = patients.ToList();
+                GridView1.DataBind();
+            }
+            else
+            {
+                var patients = from x in myDbcon1.PatientsTables.Local
+                               where x.FirstName.StartsWith(text) || x.LastName.StartsWith(text)
+                               where x.DoctorID == currentDoctor.DoctorID
+                               select x;
+
+                GridView1.DataSource = patients.ToList();
+                GridView1.DataBind();
+            }
+
         }
     }
 }
