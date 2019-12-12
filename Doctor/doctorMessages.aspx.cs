@@ -17,7 +17,6 @@ namespace FinalProject.Doctor
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             myDbcon1.DoctorsTables.Load();
 
             var currentDoctor = (from x in myDbcon1.DoctorsTables.Local
@@ -58,7 +57,6 @@ namespace FinalProject.Doctor
                 DropDownList1.DataSource = patientUserNames.ToList().Distinct();
                 DropDownList1.DataBind();
             }
-
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,7 +76,6 @@ namespace FinalProject.Doctor
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
             gridView2MessageID = Convert.ToInt32(GridView2.SelectedDataKey[0]);
-
             myDbcon1.MessagesTables.Load();
 
             var message = (from x in myDbcon1.MessagesTables.Local
@@ -87,7 +84,6 @@ namespace FinalProject.Doctor
 
             Label3.Text = message.Message;
         }
-
 
         protected void Button1_Click(object sender, EventArgs e)
         {
