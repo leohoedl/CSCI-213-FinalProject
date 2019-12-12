@@ -52,7 +52,7 @@
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MessageID" EmptyDataText="There are no data records to display." ForeColor="#333333" GridLines="None" style="font-size: large" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" />
+                            <asp:CommandField ShowDeleteButton="False" ShowSelectButton="True" />
                             <asp:BoundField DataField="MessageFROM" HeaderText="MessageFROM" SortExpression="MessageFROM" />
                             <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
                         </Columns>
@@ -85,6 +85,7 @@
                             <asp:Parameter Name="MessageID" Type="Int32" />
                         </UpdateParameters>
                     </asp:SqlDataSource>
+                    <asp:Button ID="Button3" runat="server" Text="Delete" OnClick="Button3_Click" />
                 </td>
                 <td style="font-size: small">
                     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
@@ -100,7 +101,7 @@
                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MessageID" EmptyDataText="There are no data records to display." ForeColor="#333333" GridLines="None" style="font-size: large" Width="416px" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" />
+                        <asp:CommandField ShowDeleteButton="False" ShowSelectButton="True" />
                         <asp:BoundField DataField="MessageTO" HeaderText="MessageTO" SortExpression="MessageTO" />
                         <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
                     </Columns>
@@ -133,6 +134,7 @@
                         <asp:Parameter Name="MessageID" Type="Int32" />
                     </UpdateParameters>
                 </asp:SqlDataSource>
+                <asp:Button ID="Button4" runat="server" Text="Delete" OnClick="Button4_Click" />
             </td>
             <td>
                 <asp:Label ID="Label3" runat="server" style="font-size: small" Text="Label"></asp:Label>

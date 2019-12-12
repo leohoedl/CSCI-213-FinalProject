@@ -27,10 +27,10 @@
     <p>
         Appointments</p>
     <p>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="AppointmentID" EmptyDataText="There are no data records to display." ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="AppointmentID" EmptyDataText="There are no data records to display." ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" />
+                <asp:CommandField ShowDeleteButton="False" ShowSelectButton="true" />
                 <asp:BoundField DataField="PatientID" HeaderText="PatientID" SortExpression="PatientID" />
                 <asp:BoundField DataField="Purpose" HeaderText="Purpose" SortExpression="Purpose" />
                 <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
@@ -70,6 +70,9 @@
                 <asp:Parameter Name="AppointmentID" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
+    </p>
+    <p>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Delete" />
     </p>
     <p>
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Doctor/doctorHomepage.aspx">Back</asp:HyperLink>
