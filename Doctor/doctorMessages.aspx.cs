@@ -11,6 +11,7 @@ namespace FinalProject.Doctor
     public partial class doctorMessages : System.Web.UI.Page
     {
         HA3_DataBaseV1Entities3 myDbcon1 = new HA3_DataBaseV1Entities3();
+        HA3_DataBaseV1Entities3 myDbcon2 = new HA3_DataBaseV1Entities3();
 
         protected void Page_Load(object sender, EventArgs e)
         {
