@@ -43,7 +43,10 @@ namespace FinalProject.Doctor
 
             myDbcon1.PatientsTables.Load();
 
-            var patientUserNames = myDbcon1.PatientsTables.Local.ToList().Select(x => x.UserLoginName);
+            var patientUserNames = myDbcon1.PatientsTables.Local.Distinct().ToList().Select(x => x.UserLoginName);
+
+            DropDownList1.DataSource = patientUserNames;
+            DropDownList1.DataBind();
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,7 +85,7 @@ namespace FinalProject.Doctor
 
             MessagesTable myMessage = new MessagesTable();
             myMessage.MessageFROM = currentDoctor.UserLoginName.Trim();
-            myMessage.MessageTO = DropDownList1.SelectedValue.Trim();
+            myMessage.MessageTO = DropDownList1.SelectedItem.Text.Trim();
             myMessage.Date = DateTime.Now;
             myMessage.Message = TextBox1.Text.Trim();
 

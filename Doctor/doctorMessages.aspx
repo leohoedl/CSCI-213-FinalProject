@@ -145,7 +145,7 @@
         <tr>
             <td class="auto-style12">To: </td>
             <td>
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1">
+                <asp:DropDownList ID="DropDownList1" AppendDataBoundItems="true" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
