@@ -80,7 +80,10 @@
     <Content Include="App_Data\HA3_DataBaseV1_log.ldf">
       <DependentUpon>HA3_DataBaseV1.mdf</DependentUpon>
     </Content>
+    <Content Include="Doctor\doctorAppointments.aspx" />
     <Content Include="Doctor\doctorHomepage.aspx" />
+    <Content Include="Doctor\doctorMessages.aspx" />
+    <Content Include="Doctor\doctorPatients.aspx" />
     <Content Include="HAModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HAModel.edmx</DependentUpon>
@@ -118,12 +121,33 @@
     <Compile Include="DoctorsTable.cs">
       <DependentUpon>HAModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Doctor\doctorAppointments.aspx.cs">
+      <DependentUpon>doctorAppointments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\doctorAppointments.aspx.designer.cs">
+      <DependentUpon>doctorAppointments.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Doctor\doctorHomepage.aspx.cs">
       <DependentUpon>doctorHomepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Doctor\doctorHomepage.aspx.designer.cs">
       <DependentUpon>doctorHomepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\doctorMessages.aspx.cs">
+      <DependentUpon>doctorMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\doctorMessages.aspx.designer.cs">
+      <DependentUpon>doctorMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\doctorPatients.aspx.cs">
+      <DependentUpon>doctorPatients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\doctorPatients.aspx.designer.cs">
+      <DependentUpon>doctorPatients.aspx</DependentUpon>
     </Compile>
     <Compile Include="HAModel.Context.cs">
       <AutoGen>True</AutoGen>
