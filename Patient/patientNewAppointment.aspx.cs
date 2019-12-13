@@ -73,16 +73,35 @@ namespace FinalProject.Patient
 
                 myAppointment.PatientID = patID;
                 myAppointment.Purpose = TextBox1.Text;
-                myAppointment.DoctorID = myPatient.DoctorID;
+                myAppointment.DoctorID = Convert.ToInt32(DropDownList3.SelectedValue);
                 myAppointment.VisitSummary = TextBox2.Text;
                 myAppointment.Date = Calendar1.SelectedDate;
                 int hours = Convert.ToInt32(TextBox3.Text);
                 int mins = Convert.ToInt32(DropDownList1.SelectedValue);
                 myAppointment.Time = new TimeSpan(hours, mins, 0);
 
-                //Add data to the table
-                myDbcon1.AppointmentsTables.Add(myAppointment);
-                myDbcon1.SaveChanges();
+                //Check for conflicting appointments
+                bool timeconflict = false;
+                foreach(var x in myDbcon1.AppointmentsTables)
+                {
+                    if(myAppointment.Date == x.Date && myAppointment.Time == x.Time)
+                    {
+                        timeconflict = true;
+                    }
+                }
+
+                if(timeconflict == true)
+                {
+                    //Display error message
+                    MessageBox.Show("Time conflicts with an existing appointment.");
+                }
+                else
+                {
+                    //Add data to the table
+                    myDbcon1.AppointmentsTables.Add(myAppointment);
+                    myDbcon1.SaveChanges();
+                    MessageBox.Show("Appointment successfully created.");
+                }
             }
   
         }

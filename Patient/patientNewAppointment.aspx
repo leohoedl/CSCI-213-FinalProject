@@ -69,8 +69,30 @@
         <tr>
             <td class="auto-style9">Doctor</td>
             <td class="auto-style10">
-                <asp:DropDownList ID="DropDownList3" runat="server">
+                <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="SqlDataSource2" DataTextField="LastName" DataValueField="DoctorID">
                 </asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [DoctorsTable] WHERE [DoctorID] = @DoctorID" InsertCommand="INSERT INTO [DoctorsTable] ([FirstName], [LastName], [Location], [Department], [Email], [UserLoginName]) VALUES (@FirstName, @LastName, @Location, @Department, @Email, @UserLoginName)" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [DoctorID], [FirstName], [LastName], [Location], [Department], [Email], [UserLoginName] FROM [DoctorsTable]" UpdateCommand="UPDATE [DoctorsTable] SET [FirstName] = @FirstName, [LastName] = @LastName, [Location] = @Location, [Department] = @Department, [Email] = @Email, [UserLoginName] = @UserLoginName WHERE [DoctorID] = @DoctorID">
+                    <DeleteParameters>
+                        <asp:Parameter Name="DoctorID" Type="Int32" />
+                    </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="FirstName" Type="String" />
+                        <asp:Parameter Name="LastName" Type="String" />
+                        <asp:Parameter Name="Location" Type="String" />
+                        <asp:Parameter Name="Department" Type="String" />
+                        <asp:Parameter Name="Email" Type="String" />
+                        <asp:Parameter Name="UserLoginName" Type="String" />
+                    </InsertParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="FirstName" Type="String" />
+                        <asp:Parameter Name="LastName" Type="String" />
+                        <asp:Parameter Name="Location" Type="String" />
+                        <asp:Parameter Name="Department" Type="String" />
+                        <asp:Parameter Name="Email" Type="String" />
+                        <asp:Parameter Name="UserLoginName" Type="String" />
+                        <asp:Parameter Name="DoctorID" Type="Int32" />
+                    </UpdateParameters>
+                </asp:SqlDataSource>
             </td>
             <td class="auto-style10">&nbsp;</td>
         </tr>
