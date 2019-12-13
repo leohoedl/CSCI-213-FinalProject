@@ -34,5 +34,30 @@ namespace FinalProject.Doctor
             GridView1.DataSource = appointments.ToList();
             GridView1.DataBind();
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            myDbcon1.AppointmentsTables.Load();
+
+            var selectedItem = GridView1.SelectedDataKey[0];
+
+            if (selectedItem != null)
+            {
+                int appointmentID = Convert.ToInt32(selectedItem);
+
+                var appointment = (from x in myDbcon1.AppointmentsTables.Local
+                                   where x.AppointmentID == appointmentID
+                                   select x).First();
+
+                myDbcon1.AppointmentsTables.Remove(appointment);
+                myDbcon1.SaveChanges();
+            }
+
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
